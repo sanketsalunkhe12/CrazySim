@@ -3,13 +3,15 @@
 
 ## CrazySim Architecture:
 
-1. **Crazyflie Firmware:** In normal cases, this Flight Control Software runs on the flight hardware, i.e., 32-bit Crazyflie ARM microcontroller, to maintain stability, control, and sensor integration. In CrazySim, the latest crazyflie firmware is modified using preprocessor macros, which will be built either for SITL or hardware.
+1. **Crazyflie Firmware:** In normal cases, this ```Flight Control Software``` runs on the flight hardware, i.e., 32-bit Crazyflie ARM microcontroller, to maintain stability, control, and sensor integration. In CrazySim, the latest crazyflie firmware is modified using preprocessor macros, which will be built either for SITL or hardware.
 
-2. **Gazebo Plugin:** Gazebo is used as a physics and sensor simulator which provides multi-robot support. Author created a Gazebo plugin to create a bridge between the simulator and crazyflie firmware.  
+2. **Gazebo Plugin:** ```Gazebo``` is used as a physics and sensor simulator which provides multi-robot support. The author created a ```Gazebo plugin``` to create a bridge between the simulator and crazyflie firmware through a socket link connection. When Gazebo calls the plugin, it initializes the three threads: (a) Crazyflie firmware receiver thread, (b) Crazyflie firmware sender thread, and (c) ```CFLib``` receiver thread. Crazyflie firmware has only one communication link at a time, which can be either used to interface between the simulator and firmware or to communicate between CFLib and Crazyswarm. To manage this, the author used a relay system within the plugin. The ```communication delay``` feature is used to simulate radio communication delay.
 
-3. **Crazyflie client (cfclient):** This is the User interface for controlling the Crazyflie UAV and simulator. It connects to a UAV via a UDP client, sends flight commands like position and attitude, and gets information about sensor data.
+3. **ROS2 Interface:** 
 
-4. 
+4. **Crazyflie client (cfclient):** This is the User interface for controlling the Crazyflie UAV and simulator. It connects to a UAV via a UDP client, sends flight commands like position and attitude, and gets information about sensor data.
+
+5. 
 
 ![Local Image](docs/architecture.png)
 
