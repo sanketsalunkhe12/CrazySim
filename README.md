@@ -5,7 +5,9 @@
 
 1. **Crazyflie Firmware:** In normal cases, this Flight Control Software runs on the flight hardware, i.e., 32-bit Crazyflie ARM microcontroller, to maintain stability, control, and sensor integration. In CrazySim, the latest crazyflie firmware is modified using preprocessor macros, which will be built either for SITL or hardware.
 
-2. **Crazyflie client (cfclient):** 
+2. Gazebo Plugin: 
+
+3. **Crazyflie client (cfclient):** User interface to control Crazyflie UAV and also simulator. It connects to UAV via a UDP client and sends flight commands like position and attitude, and gets information about sensor data. 
 
 
 
