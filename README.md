@@ -5,16 +5,16 @@
 
 1. **Crazyflie Firmware:** In normal cases, this Flight Control Software runs on the flight hardware, i.e., 32-bit Crazyflie ARM microcontroller, to maintain stability, control, and sensor integration. In CrazySim, the latest crazyflie firmware is modified using preprocessor macros, which will be built either for SITL or hardware.
 
-2. Gazebo Plugin: 
+2. **Gazebo Plugin:** Gazebo is used as a physics and sensor simulator which provides multi-robot support. Author created a Gazebo plugin to create a bridge between the simulator and crazyflie firmware.  
 
-3. **Crazyflie client (cfclient):** User interface to control Crazyflie UAV and also simulator. It connects to UAV via a UDP client and sends flight commands like position and attitude, and gets information about sensor data. 
+3. **Crazyflie client (cfclient):** This is the User interface for controlling the Crazyflie UAV and simulator. It connects to a UAV via a UDP client, sends flight commands like position and attitude, and gets information about sensor data.
+
+4. 
+
+![Local Image](docs/architecture.png)
 
 
-
-
-
-
-
+## CrazySim ICRA Paper: 
 
 This code accompanies the work in the ICRA 2024 accepted paper "CrazySim: A Software-in-the-Loop Simulator for the Crazyflie Nano Quadrotor" [1]. CrazySim is a simulator platform that runs Crazyflie firmware in a simulation state on a desktop machine with integrated communication with Gazebo sensors and physics engine. The simulated Crazyflie firmware is intended to communicate with a custom Crazyflie Python library ([CFLib](https://github.com/bitcraze/crazyflie-lib-python)) provided in this code. This enables simulating the behavior of CFLib scripts that are intended to control single or multiple Crazyflies in a real hardware demonstration. With CFLib communication capabilities, users can choose to use [CrazySwarm2](https://github.com/IMRCLab/crazyswarm2) with CFLib as the backend for a ROS 2 interface with the simulator. In this code we also provide a case study that uses model predictive control (MPC) using [Acados](https://github.com/acados/acados) for decentralized control of Crazyflie drone fleets.
 
