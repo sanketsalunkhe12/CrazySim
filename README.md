@@ -24,6 +24,11 @@
 
 ## How to run?
 
+To run a single CF:
+```
+bash crazyflie-firmware/tools/simulators/gz sitl_singleagent.sh -m crazyflie -x 0 -y 0
+```
+
 
 ## CrazySim ICRA Paper: 
 
