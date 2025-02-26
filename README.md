@@ -21,6 +21,61 @@
 
 ## How to install?
 
+### Install this repository using the recursive command:
+
+```bash
+git clone https://github.com/gtfactslab/CrazySim.git --recursive
+```
+
+### Install crazyflie-clients-python
+This modified version of the client package is only for software-in-the-loop and has several hardware specific features disabled.
+Clone the custom crazyflie client.
+```bash
+git clone https://github.com/llanesc/crazyflie-clients-python
+```
+
+Note: One thing I noticed is that if you want to use SITL only for CF install cfclient from 'crazyflie-clients-python'. If you want to use actual hardware, install cfclient from 'CrazySim/crazyflie-lib-python'. When you run any of these for the cfclient installation, the previous installation will get overridden. 
+
+### Installing cfclient:
+For SITL purpose:
+
+```bash
+cd crazyflie-clients-python
+git checkout sitl-release
+pip3 install -e .
+```
+
+For hardware purpose:
+
+```bash
+cd CrazySim\crazyflie-lib-python
+pip3 install -e .
+```
+
+If pip3 doesn't work, try using pip.
+
+### Install Gazebo Garden:
+First, install Gazebo Garden from https://gazebosim.org/docs/garden/install_ubuntu 
+Follow the binary installation.
+
+### Install crazyflie-firmware:
+This is a modified version of the crazyflie-firmware for software-in-the-loop. At this time do not use this firmware for your hardware. SITL integration with Kbuild is being developed for cross-platform building.
+
+Install dependencies.
+```bash
+sudo apt install cmake build-essential
+pip install Jinja2
+```
+
+To build the firmware and Gazebo plugins.
+```bash
+cd CrazySim/crazyflie-firmware
+mkdir -p sitl_make/build && cd $_
+cmake ..
+make all
+```
+
+
 
 ## How to run?
 
