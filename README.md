@@ -105,6 +105,11 @@ cmake ..
 make all
 ```
 
+You might get error saying python is not found. To solve this create symlink between Python and Python2:
+```
+sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+
 ## How to use
 Currently, users have to restart Gazebo after each CFLib connect and disconnect cycle. Supporting a restart cycle without restarting Gazebo is on the list of things to do.
 
